@@ -1,4 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { BacService } from './bac.service';
 import { BacRequestDto } from './dto/bac-request.dto';
 
 @Controller({
@@ -6,9 +7,10 @@ import { BacRequestDto } from './dto/bac-request.dto';
     version: '1'
 })
 export class BacController {
+    constructor(private bacService: BacService) {}
+
     @Post()
-    returnBac(@Body() bacRequestDto: BacRequestDto): [number, string] {
-        console.log(bacRequestDto)
-        return [0.01, 'This is a test blood alcohol content output']
+    returnBac(@Body() bacRequestDto: BacRequestDto): string {
+        return this.bacService.getBac(bacRequestDto)
     }
 }
