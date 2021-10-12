@@ -6,7 +6,7 @@ import { Product, ProductSchema } from './schema/product.schema';
 
 @Module({
     imports: [MongooseModule.forFeature([{
-        name: Product.name, schema: ProductSchema, collection: 'alkoData'
+        name: Product.name, schema: ProductSchema, collection: 'products'
     }])],
     controllers: [AlkoController],
     providers: [AlkoService],
