@@ -18,19 +18,22 @@ export class Product {
     maker: string
 
     @Prop()
-    bottlesize: string
+    bottleSize: string
 
     @Prop()
     price: number
 
     @Prop()
-    litreprice: number
+    litrePrice: number
 
     @Prop()
     type: string
 
     @Prop()
-    subtype: string
+    subtype?: string
+
+    @Prop()
+    beerType?: string
 
     @Prop()
     country: string
@@ -42,13 +45,16 @@ export class Product {
     year?: string
 
     @Prop()
-    character: string
+    character?: string
 
     @Prop()
-    alkopros: number
+    alcoholPercentage: number
 
     @Prop()
     energy: number
+
+    @Prop()
+    alkoLink: string
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product)

@@ -12,7 +12,7 @@ mongo.connect(url, (err, client) => {
     console.log('Connected succesfully to server')
     const db = client.db(dbName)
 
-    const collection = db.collection('alkoData')
+    const collection = db.collection('products')
 
     const csv = fs.readFileSync('./data/alko.csv').toString()
 
@@ -31,18 +31,19 @@ mongo.connect(url, (err, client) => {
             num: line[0],
             name: line[1] || 'NoName',
             maker: line[2] || 'NoMaker',
-            bottlesize: line[3] || 0,
+            bottleSize: line[3] || 0,
             price: line[4] || 0,
-            litreprice: line[5] || 0,
+            litrePrice: line[5] || 0,
             type: line[6] || 'None',
-            subtype: line[7] || 'None',
-            beertype: line[8] || 'None',
+            subtype: line[7] || null,
+            beerType: line[8] || null,
             country: line[9] || 'NoCountry',
-            area: line[10] || 'None',
+            area: line[10] || null,
             year: line[11] || null,
-            character: line[12] || 'None',
-            alkopros: line[13],
-            energy: line[14] || 0
+            character: line[12] || null,
+            alcoholPercentage: line[13],
+            energy: line[14] || 0,
+            alkoLink: `https://www.alko.fi/tuotteet/${line[0]}/`
         }, (error, item) => {
             if (error) {
                 console.error(error)
