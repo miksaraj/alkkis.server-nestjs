@@ -1,15 +1,12 @@
 import { Injectable } from "@nestjs/common";
-import { BacRequestDto } from "./dto/bac-request.dto";
-import { BacRepresentation, calculateBac, getBacRepresentation } from './functions/bac.functions'
+import { BacRequestDto, BacRepresentation } from "src/alkkis";
+import { calculateBac, getBacRepresentation } from './functions/bac.functions'
 
 @Injectable()
 export class BacService {
     constructor() {}
 
     getBac(data: BacRequestDto): BacRepresentation {
-        return getBacRepresentation(calculateBac(
-            data.products,
-            data.drinker
-        ))
+        return getBacRepresentation(calculateBac(data))
     }
 }

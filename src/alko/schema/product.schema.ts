@@ -1,9 +1,13 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 export type ProductDocument = Product & Document
 
 @Schema()
 export class Product {
+    // Not even sure if this will work...
+    @Prop()
+    _id: string
+
     @Prop()
     num: string
 
@@ -33,7 +37,7 @@ export class Product {
 
     @Prop()
     area: string
-    
+
     @Prop()
     year?: string
 

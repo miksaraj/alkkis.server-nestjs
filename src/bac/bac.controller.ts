@@ -1,7 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { BacService } from './bac.service';
-import { BacRequestDto } from './dto/bac-request.dto';
-import { BacRepresentation } from './functions/bac.functions';
+import { BacRequestDto, BacRepresentation } from 'src/alkkis';
 
 @Controller({
     path: 'bac',
